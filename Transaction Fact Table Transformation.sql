@@ -1,17 +1,4 @@
-﻿
-
-
-
-
-
-
-
-
-
-
-
-
- CREATE procedure [etl].[sp_dmt_fact_budget](
+﻿CREATE procedure [etl].[sp_dmt_fact_budget](
 	@parent_audit_ts VARCHAR(50) = '-1', --optional parameter 
 	@root_ts VARCHAR(50) = '-1'--optional parameter
 	)

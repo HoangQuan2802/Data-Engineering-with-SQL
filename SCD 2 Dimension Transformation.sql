@@ -26,10 +26,10 @@ BEGIN TRY
 								 , @stepname = @stepname
 								 , @target_table = @target_table;
 
-	/*2019-05-18: Added by Di Truong- Set from_date = max timestamp from dmt*/
+
 	SELECT @from_date =  COALESCE(MAX(COALESCE(deleted_audit_ts, updated_audit_ts, audit_ts, '-1')), '-1')
 	FROM dmt.dim_customer
-	/*2019-05-18: Added by Di Truong- Set from_date = max timestamp from dmt*/
+
 
 	--load lastest records from stt from a particulate date @from_date
 	SELECT *
@@ -599,7 +599,6 @@ BEGIN TRY
 
 	
 	SET @new_rows = @@ROWCOUNT;
-	/*STATRT-2019-05-21: removed by Wiwis*/
 	/*DECLARE @is_table_empty int;
 	SELECT @is_table_empty = COUNT(1) 
 	  FROM #tmp_stt;
